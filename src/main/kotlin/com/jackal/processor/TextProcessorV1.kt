@@ -45,7 +45,7 @@ class TextProcessorV1 {
             val freq = WordFreq(entry.key, entry.value)
             list.add(freq)
         }
-        list.sortByDescending {
+        list.sortedByDescending {
             it.frequency
         }
         return list
