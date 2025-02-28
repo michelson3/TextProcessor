@@ -13,6 +13,16 @@ class TextProcessorV3 {
             .sortedByDescending { it.frequency }
     }
 
+    fun processText1(text: String): List<WordFreq> {
+        return text
+            .clean()
+            .split(" ")
+            .filter { it != "" }
+            .groupBy { it }
+            .map { WordFreq(it.key, it.value.size) }
+            .sortedByDescending { it.frequency }
+    }
+
     private fun List<String>.getWordCount(): Map<String, Int> {
         val map = hashMapOf<String, Int>()
 
